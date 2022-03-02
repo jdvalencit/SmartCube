@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>
+        {% block title %} {% endblock%}
+    </title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: #17a2b8;
+        }
+        
+        #barra{
+            margin: 0;
+            padding: 0;
+            list-style: none; /*quita el punto */
+            text-transform: uppercase;
+            background-color: #E6E6FA;
+            
+        }
+        #barra li{
+            display: inline;
+            margin: 0 20px;
+            color: #000;
+
+        }
+        #home-link {
+            color: #000;
+        }
+    </style>
+    {% block css %} {% endblock %}
+</head>
+
+<body>
+        <ul id="barra">
+            <li><a href="http://127.0.0.1:8000/home/" id="home-link">Home</a></li>
+            <li>Servicios</li>
+            <li>Quiénes somos</li>
+            <li>Contacto</li>
+            <li>Acerca de</li>
+            <li>{% block barra %}{% endblock %}</li>
+        </ul>
+
+
+
+    {% block content %} {% endblock %}
+
+
+</body>
+
+</html>
