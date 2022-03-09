@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Administrar contenedores{% endblock %}
+
+{% block barra %}
+    <a style="color: black" href="http://127.0.0.1:8000/login/">cerrar sesion</a>
+{% endblock %}
+
+{% block content %} 
+    {% if form.error %}
+        <p style= "color:red;">favor revisa este campo </p>
+    {% endif %}
+    <form action="/insert_contenedor/" method="POST">{% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Crear contenedor">
+    </form>
+    
+{% endblock %}

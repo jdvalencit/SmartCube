@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gestionUsuarios',
+    'gestionContenedores',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'SmartCube.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/jdtor/OneDrive/Escritorio/ProyectoIntegrador1\SmartCube1\gestionUsuarios/templates'],
+        'DIRS': ['C:/Users/jdtor/OneDrive/Escritorio/ProyectoIntegrador1\SmartCube1/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

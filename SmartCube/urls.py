@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from gestionUsuarios import views
+from gestionContenedores import views as con_views
 #from django.contrib.auth.views import login,logout_then_login
 
 urlpatterns = [
@@ -23,4 +24,7 @@ urlpatterns = [
     path('home/', views.home),
     path('login/', views.login),
     path('signup/', views.signup),
+    path('contenedor/', con_views.contenedor),
+    path('insert_contenedor/', con_views.insert_contenedor),
+    
 ]
