@@ -14,4 +14,7 @@ class formularioInsertContenedor (forms.Form):
     tipo = forms.CharField(max_length=50)
     organizacion = forms.CharField(max_length=50)
     
-
+class formularioUpdateContenedor (forms.Form):
+    tipo = forms.CharField(max_length=50)
+    organizacion = forms.CharField(max_length=50)
+    
