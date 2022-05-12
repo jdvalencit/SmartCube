@@ -2,7 +2,7 @@ from inspect import formatannotation
 from django import forms
 
 class formularioRegistro (forms.Form):
-    nombre = forms.CharField()
+    nombre = forms.CharField(widget=forms.TextInput(attrs={'id':'nombre-el'}))
     direccion = forms.CharField()
     email = forms.EmailField()
     telefono = forms.CharField()
@@ -14,4 +14,7 @@ class formularioInsertContenedor (forms.Form):
     tipo = forms.CharField(max_length=50)
     organizacion = forms.CharField(max_length=50)
     
-
+class formularioUpdateContenedor (forms.Form):
+    tipo = forms.CharField(max_length=50)
+    organizacion = forms.CharField(max_length=50)
+    

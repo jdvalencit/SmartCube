@@ -6,8 +6,80 @@
     <a style="color: black" href="http://127.0.0.1:8000/login/">cerrar sesion</a>
 {% endblock %}
 
+{% block css %} 
+<style>
+    .inline {
+        display: inline;
+    }
+    
+    .link-button {
+        background: none;
+        border: none;
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 1em;
+        font-family: serif;
+    }
+    .link-button:focus {
+        outline: none;
+    }
+    .link-button:active {
+        color:red;
+    }
+    p {
+      display: inline;
+      padding-left: 3px;
+      padding-right: 650px; 
+    }
+</style>
+{% endblock %}
+
 {% block content %} 
     <br>
-    <p>&nbsp&nbsp <a style="color: black;" href="/insert_contenedor/">Crear un nuevo contenedor</a></p>
-    
+
+    <p>&nbsp &nbsp <a href="/insert_contenedor/" type="button" class="btn btn-info">Crear contenedor</a>
+    <p>&nbsp &nbsp 
+    <br>
+    <br>
+    <table class="table table-striped" style="background-color: white; width: 900px;  margin-left:20px">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Organización</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+            <th scope="col">Gráfico </th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for contenedor in lista %}
+          <tr>
+            <th scope="row">{{contenedor.id}}</th>
+            <td>{{contenedor.tipo}}</td>
+            <td>{{contenedor.organizacion}}</td>
+            <td>
+                <form method="GET" action="/update_contenedor/" class="inline">{% csrf_token %}
+                    <input type="hidden" name="id" value={{contenedor.id}}>
+                    <button type="submit" class="btn btn-success" name="boton_editar" class="link-button">
+                      Editar
+                    </button>
+                  </form>
+            </td>
+            <td>
+                <form method="GET" action="/delete_contenedor/" class="inline">{% csrf_token %}
+                <input type="hidden" name="id" value={{contenedor.id}}>
+                <button type="submit" class="btn btn-success"  name="boton_eliminar">
+                  Eliminar
+                </button>
+              </form>
+            </td>
+            <td>
+                <a href="/chart/" type="button" class="btn btn-success">Gráfico</a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
 {% endblock %}

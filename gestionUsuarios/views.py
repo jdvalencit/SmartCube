@@ -49,4 +49,3 @@ def signup(request):
         formSignUp = formularioRegistro()
 
         return render(request, "regis.html",{"form":formSignUp})
-

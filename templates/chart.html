@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Grafico{% endblock %}
+
+{% block barra %}
+<a style="color: black" href="http://127.0.0.1:8000/login/">cerrar sesion</a>
+{% endblock %}
+
+{% block css %} 
+<style>
+.col1, .col2{
+    width:50%;
+    float:left;
+
+}
+
+.col1 div, .col2 div{
+    padding-left:10px;
+    padding-right:10px;
+}
+</style>
+{% endblock %}
+{% block content %}  
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<div style="padding-top:20px">
+  <p>&nbsp &nbsp <a href="/contenedor/" type="button" class="btn btn-info">Contenedores</a>
+</div>
+<section class="col1">
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <div style=" height: 500px; width: 1000px; ">
+        <canvas id="pesoChart" style="background-color: white"></canvas>
+    </div>
+  </div>
+</section>
+<section class="col2">
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <div style=" height: 500px; width: 1000px;">
+        <canvas id="proxChart" style="background-color: white"></canvas>
+    </div>
+  </div>
+</section>
+<script id="scriptId">
+  const ctx = document.getElementById("proxChart").getContext("2d");
+  const myChart = new Chart(ctx, {
+      type: "line",
+      data: {
+          labels: {{data.labels|safe}},
+          datasets: [
+          {
+              label: "Proximidad",
+              data: {{data.proximidad}},
+              backgroundColor: [
+              "rgba(255, 99, 132, 0.2)",],
+              borderColor: [
+              "rgba(255, 99, 132, 1)",],
+            }]
+        },
+    });
+    
+  const ctx1 = document.getElementById("pesoChart").getContext("2d");
+  const myChart1 = new Chart(ctx1, {
+      type: "line",
+      data: {
+          labels: {{data.labels|safe}},
+          datasets: [
+          {
+              label: "Peso",
+              data: {{data.peso}},
+              backgroundColor: [
+              "rgba(20, 99, 132, 0.2)",],
+              borderColor: [
+              "rgba(20, 99, 132, 1)",],
+            }]
+        },
+    });
+</script>
+
+{% endblock %}

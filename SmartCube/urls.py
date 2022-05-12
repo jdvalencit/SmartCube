@@ -26,5 +26,7 @@ urlpatterns = [
     path('signup/', views.signup),
     path('contenedor/', con_views.contenedor),
     path('insert_contenedor/', con_views.insert_contenedor),
-    
+    path('update_contenedor/', con_views.update_contenedor),
+    path('delete_contenedor/', con_views.delete_contenedor),
+    path('chart/', con_views.chart),
 ]
