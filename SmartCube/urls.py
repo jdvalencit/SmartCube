@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from gestionUsuarios import views
 from gestionContenedores import views as con_views
+from contenido import views as contenido_views
 #from django.contrib.auth.views import login,logout_then_login
 
 urlpatterns = [
@@ -29,4 +30,8 @@ urlpatterns = [
     path('update_contenedor/', con_views.update_contenedor),
     path('delete_contenedor/', con_views.delete_contenedor),
     path('chart/', con_views.chart),
+    path('contacto/',contenido_views.contacto),
+    path('quienes_somos/',contenido_views.quienes_somos),
+    path('servicios/',contenido_views.servicios),
+    path('acerca_de/',contenido_views.acerca_de),
 ]

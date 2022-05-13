@@ -55,6 +55,11 @@
               "rgba(255, 99, 132, 1)",],
             }]
         },
+        options: {
+          scales: {x: { title: { display: true, text: 'Hora' } }, 
+            y: { title: { display: true, text: 'Proximidad(cm)' } } 
+          } 
+        },
     });
     
   const ctx1 = document.getElementById("pesoChart").getContext("2d");
@@ -72,6 +77,14 @@
               "rgba(20, 99, 132, 1)",],
             }]
         },
+        options: {
+          scales: {x: { title: { display: true, text: 'Hora' } }, 
+            y: { title: { display: true, text: 'Peso(Kg)' } } 
+          } 
+        },
+
+
+  
     });
 </script>
 
