@@ -10,8 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from email import message
 from pathlib import Path
 import os
+from django.contrib.messages import constants
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,6 +43,8 @@ INSTALLED_APPS = [
     'gestionUsuarios',
     'gestionContenedores',
     'contenido',
+    'autenticacion',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +134,13 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'gestionUsuarios/static'),)
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
+
+MESSAGE_TAGS = {
+    constants.DEBUG: 'debug',    
+    constants.INFO: 'info',    
+    constants.SUCCESS: 'success',    
+    constants.WARNING: 'warning',    
+    constants.ERROR: 'danger',    
+}

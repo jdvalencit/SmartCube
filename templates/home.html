@@ -2,11 +2,11 @@
 
 {% block title %}Home{% endblock %}
 
-{% block barra %}
-    <a style="color: black" href="http://127.0.0.1:8000/login/">Iniciar sesion/Registrarse</a>
-{% endblock %}
-
 {% block content %} 
     <br>
     <p>&nbsp&nbspBienvenido a SmartCube.</p>
+
+    {% if user.is_authenticated %}
+        <p>&nbsp <a href="/contenedor/" type="button" class="btn btn-info">Administrar contenedores</a>
+    {% endif %}
 {% endblock %}

@@ -18,11 +18,12 @@ from django.urls import path
 from gestionUsuarios import views
 from gestionContenedores import views as con_views
 from contenido import views as contenido_views
+from autenticacion import views as auth_views
 #from django.contrib.auth.views import login,logout_then_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.home),
+    path('home/', views.home, name="Home"),
     path('login/', views.login),
     path('signup/', views.signup),
     path('contenedor/', con_views.contenedor),
@@ -34,4 +35,9 @@ urlpatterns = [
     path('quienes_somos/',contenido_views.quienes_somos),
     path('servicios/',contenido_views.servicios),
     path('acerca_de/',contenido_views.acerca_de),
+    path('autenticacion/',auth_views.Registro.as_view(),name="Autenticacion"),
+    path('logout',auth_views.cerrar_sesion, name="Logout"),
+    path('login',auth_views.iniciar_sesion, name="Login"),
+    path('accounts/login/',auth_views.iniciar_sesion, name="Login"),
+
 ]

@@ -39,10 +39,14 @@
         <ul id="barra">
             <li><a href="http://127.0.0.1:8000/home/" id="home-link">Home</a></li>
             <li><a href="http://127.0.0.1:8000/servicios/">Servicios</a></li>
-            <li><a href="http://127.0.0.1:8000/quienes_somos">Quienes somos</a></li>
+            <li><a href="http://127.0.0.1:8000/servicios/quienes_somos">Quienes somos</a></li>
             <li><a href="http://127.0.0.1:8000/contacto">Contacto</a></li>
             <li><a href="http://127.0.0.1:8000/acerca_de">Acerca de</a></li>
-            <li>{% block barra %}{% endblock %}</li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'Logout' %}">Cerrar sesión</a></li>
+            {% else %}
+            <li><a href="{% url 'Login' %}">Inicia sesión</a>&nbsp&nbsp <a href="../autenticacion">Regístrate</a></li>
+            {% endif %}
         </ul>
 
 

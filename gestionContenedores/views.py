@@ -1,15 +1,20 @@
+from cmath import log
 from django.shortcuts import render
 from gestionContenedores.models import contenedor as contenedor_model
 from gestionUsuarios.forms import formularioInsertContenedor, formularioUpdateContenedor
 from django.views import View
+from django.contrib.auth.decorators import login_required
 import requests
 # Create your views here.
+
+@login_required
 def contenedor(request):
     
     lista = contenedor_model.objects.filter(status=True).order_by('id')
     
     return render(request,"contenedor.html",{"lista":lista})
 
+@login_required
 def insert_contenedor(request):
     
     if request.method=="POST": 
@@ -27,6 +32,7 @@ def insert_contenedor(request):
 
         return render(request, "insert_contenedor.html",{"form":form_insert})
 
+@login_required
 def update_contenedor(request):
 
     if request.method=="POST": 
@@ -45,6 +51,7 @@ def update_contenedor(request):
     form_update = formularioUpdateContenedor()
     return render(request, "update_contenedor.html",{"form":form_update,"id":id_update})
 
+@login_required
 def delete_contenedor(request):
     if request.method=="GET": 
         id_update = request.GET["id"]
@@ -52,6 +59,7 @@ def delete_contenedor(request):
         
     return render(request, "contenedor_eliminado.html")
 
+@login_required
 def chart(request):
     labels = []
     proximidad = []
