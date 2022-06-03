@@ -69,8 +69,8 @@ def chart(request):
     jsonData = r.json()
 
     for d in jsonData["feeds"]:
-        proximidad.append(int(d["field1"]))
-        peso.append(int(d["field2"]))
+        proximidad.append(float(d["field1"]))
+        peso.append(float(d["field2"]))
         sp = d["created_at"][11:-4].split(":")
         labels.append(str(int(sp[0])-5)+":"+sp[1])
         

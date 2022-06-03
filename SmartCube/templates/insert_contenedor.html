@@ -10,11 +10,15 @@
     {% if form.error %}
         <p style= "color:red;">favor revisa este campo </p>
     {% endif %}
+    <br>
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <div style=" height: 500px; width: 370px;">
     <form action="/insert_contenedor/" method="POST">{% csrf_token %}
         <table>
             {{ form.as_table }}
-        </table>
-        <input type="submit" value="Crear contenedor">
+            </table>
+            <br>
+        <input type="submit" value="Crear contenedor" class="btn btn-success">
     </form>
-    
+    </div></div>
 {% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang = "es">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %} {% endblock%}
+    </title>
+    {% block head %}{% endblock  %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: #ccdbfd;
+        }
+        
+        #barra{
+            margin: 0;
+            padding: 0;
+            list-style: none; /*quita el punto */
+            text-transform: uppercase;
+            background-color: #abc4ff;
+            
+        }
+        #barra li{
+            display: inline;
+            margin: 0 20px;
+            color: #000;
+
+        }
+        a{
+            color: #000;
+        }
+        img{
+            width:2%;
+        }
+            
+    </style>
+    {% block css %} {% endblock %}
+</head>
+
+<body>
+        <ul id="barra">
+            {% load static %}
+        <li><a href="http://127.0.0.1:8000/home/" id="home-link"><img src="{% static '/images/logo.png' %}"></a></li>
+            <li><a href="http://127.0.0.1:8000/servicios/">Servicios</a></li>
+            <li><a href="http://127.0.0.1:8000/quienes_somos">Quienes somos</a></li>
+            <li><a href="http://127.0.0.1:8000/contacto">Contacto</a></li>
+            <li><a href="http://127.0.0.1:8000/acerca_de">Acerca de</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'Logout' %}">Cerrar sesión</a></li>
+            {% else %}
+            <li><a href="{% url 'Login' %}">Inicia sesión</a>&nbsp&nbsp <a href="{% url 'Logout' %}">Regístrate</a></li>
+            {% endif %}
+        </ul>
+
+
+
+    {% block content %} {% endblock %}
+
+
+</body>
+
+</html>

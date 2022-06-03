@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-9c=1yeejg9#(7t1)z=)x5=ffx9zbtc$tcq$r39pn=d3ohwnh7c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.128.0.2']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'SmartCube.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/jdtor/OneDrive/Escritorio/ProyectoIntegrador1\SmartCube1/templates'],
+        'DIRS': ['../SmartCube/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,7 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'gestionUsuarios/static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

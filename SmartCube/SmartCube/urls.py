@@ -22,22 +22,21 @@ from autenticacion import views as auth_views
 #from django.contrib.auth.views import login,logout_then_login
 
 urlpatterns = [
+    path('',views.home, name="Home"),
     path('admin/', admin.site.urls),
     path('home/', views.home, name="Home"),
-    path('login/', views.login),
-    path('signup/', views.signup),
-    path('contenedor/', con_views.contenedor),
+    path('contenedor/', con_views.contenedor, name="Cont"),
     path('insert_contenedor/', con_views.insert_contenedor),
     path('update_contenedor/', con_views.update_contenedor),
     path('delete_contenedor/', con_views.delete_contenedor),
     path('chart/', con_views.chart),
-    path('contacto/',contenido_views.contacto),
-    path('quienes_somos/',contenido_views.quienes_somos),
-    path('servicios/',contenido_views.servicios),
-    path('acerca_de/',contenido_views.acerca_de),
+    path('contacto/',contenido_views.contacto,name="Contacto"),
+    path('quienes_somos/',contenido_views.quienes_somos, name="Quienes"),
+    path('servicios/',contenido_views.servicios, name="Servicios"),
+    path('acerca_de/',contenido_views.acerca_de, name="Acerca"),
     path('autenticacion/',auth_views.Registro.as_view(),name="Autenticacion"),
-    path('logout',auth_views.cerrar_sesion, name="Logout"),
-    path('login',auth_views.iniciar_sesion, name="Login"),
+    path('logout/',auth_views.cerrar_sesion, name="Logout"),
+    path('login/',auth_views.iniciar_sesion, name="Login"),
     path('accounts/login/',auth_views.iniciar_sesion, name="Login"),
 
 ]
